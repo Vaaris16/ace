@@ -1,5 +1,7 @@
 use clap::{Parser, Subcommand};
 
+mod utility;
+
 #[derive(Parser)]
 #[command(name = "Phantom")]
 #[command(about = "Ace cli")]
