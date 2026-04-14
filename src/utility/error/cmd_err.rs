@@ -1,13 +1,12 @@
 use std::fmt;
 
+#[derive(Debug)]
 pub enum CmdErr {
     NotFound { cmd: String },
 
     Failed { cmd: String, code: Option<i32> },
 
     SpawnError { cmd: String, source: std::io::Error },
-
-    InvalidOutput { cmd: String, output: String },
 }
 
 impl fmt::Display for CmdErr {
@@ -17,9 +16,6 @@ impl fmt::Display for CmdErr {
             CmdErr::Failed { cmd, code } => write!(f, "`{}` failed with code: {:?}", cmd, code),
             CmdErr::SpawnError { cmd, source } => {
                 write!(f, "failed to spawn `{}`:{}", cmd, source)
-            }
-            CmdErr::InvalidOutput { cmd, output } => {
-                write!(f, "`{}` returned invalid output: {}", cmd, output)
             }
         }
     }

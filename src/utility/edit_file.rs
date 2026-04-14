@@ -8,11 +8,17 @@ pub fn edit_file(needle: &str, path: &Path, insert: &str) -> Result<(), FileErro
         source: e,
     })?;
 
-    let new_content = if let Some(pos) = content.find(needle) {
-        let index = pos + needle.len();
-        format!("{}{}{}", &content[..index], &insert, &content[index..],)
-    } else {
-        content
+    let new_content = match needle {
+        "^" => format!("{}\n{}", insert, content),
+        "&" => format!("{}\n{}", content, insert),
+        _ => {
+            if let Some(pos) = content.find(needle) {
+                let index = pos + needle.len();
+                format!("{}{}{}", &content[..index], &insert, &content[index..],)
+            } else {
+                content
+            }
+        }
     };
 
     fs::write(&path, new_content).map_err(|e| FileErrors::FailedWrite {

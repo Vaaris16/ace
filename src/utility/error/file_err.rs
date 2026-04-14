@@ -1,15 +1,37 @@
-use std::{fmt, io, path::PathBuf};
+use std::{
+    fmt::{self},
+    io,
+    path::PathBuf,
+};
 
+#[derive(Debug)]
 pub enum FileErrors {
-    FileExists { path: PathBuf },
+    FileExists {
+        path: PathBuf,
+    },
 
-    NotFound { path: PathBuf },
+    NotFound {
+        path: PathBuf,
+    },
 
-    PermissionDenied { path: PathBuf },
+    PermissionDenied {
+        path: PathBuf,
+    },
 
-    FailedRead { path: PathBuf, source: io::Error },
+    FailedRead {
+        path: PathBuf,
+        source: io::Error,
+    },
 
-    FailedWrite { path: PathBuf, source: io::Error },
+    FailedWrite {
+        path: PathBuf,
+        source: io::Error,
+    },
+
+    FailedParse {
+        path: PathBuf,
+        source: toml::de::Error,
+    },
 }
 
 impl fmt::Display for FileErrors {
@@ -27,6 +49,10 @@ impl fmt::Display for FileErrors {
             }
             FileErrors::FailedRead { path, source } => {
                 write!(f, "failed to read: {}:{}", path.display(), source)
+            }
+
+            FileErrors::FailedParse { path, source } => {
+                write!(f, "failed to parse: {}:{}", path.display(), source)
             }
         }
     }

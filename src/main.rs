@@ -1,5 +1,12 @@
 use clap::{Parser, Subcommand};
 
+use crate::{
+    commands::add::packages::install_package::install_package, framework::framework::Frameworks,
+    utility::error::app_errors::AceErrors,
+};
+
+mod commands;
+mod framework;
 mod utility;
 
 #[derive(Parser)]
@@ -12,13 +19,21 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    Add { package: String },
+    Add {
+        package: String,
+        framework: Frameworks,
+    },
 }
 
-fn main() {
+fn main() -> Result<(), AceErrors> {
     let cli = Cli::parse();
 
     match cli.commands {
-        Commands::Add { package } => match package.as_str() {},
+        Commands::Add { package, framework } => match package.as_str() {
+            "tailwindcss" => install_package("tailwind")?,
+            _ => eprintln!("package does not exist"),
+        },
     }
+
+    Ok(())
 }
