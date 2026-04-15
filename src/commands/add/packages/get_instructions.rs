@@ -1,4 +1,4 @@
-use crate::commands::add::packages::packages::Packages;
+use crate::commands::add::packages::packages_instruction::Packages;
 use crate::utility::error::file_err::FileErrors;
 use std::path::PathBuf;
 

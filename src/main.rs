@@ -10,7 +10,7 @@ mod framework;
 mod utility;
 
 #[derive(Parser)]
-#[command(name = "Phantom")]
+#[command(name = "Ace")]
 #[command(about = "Ace cli")]
 struct Cli {
     #[command(subcommand)]
