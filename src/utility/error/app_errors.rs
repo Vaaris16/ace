@@ -1,19 +1,19 @@
 use crate::utility::error::{cmd_err::CmdErr, file_err::FileErrors};
 
 #[derive(Debug)]
-pub enum AceErrors {
+pub enum DashErrors {
     File(FileErrors),
     Cmd(CmdErr),
 }
 
-impl From<FileErrors> for AceErrors {
+impl From<FileErrors> for DashErrors {
     fn from(value: FileErrors) -> Self {
-        AceErrors::File(value)
+        DashErrors::File(value)
     }
 }
 
-impl From<CmdErr> for AceErrors {
+impl From<CmdErr> for DashErrors {
     fn from(value: CmdErr) -> Self {
-        AceErrors::Cmd(value)
+        DashErrors::Cmd(value)
     }
 }

@@ -1,13 +1,31 @@
 # [RUST] ACE
 
-##Installation
+## Installation
 
 ```bash
 cargo install --git https://github.com/Vaaris16/ace.git
+```
 
 
 ## What is Ace 
-Ace is a cli tool which can be used to install popular frameworks without needing to manualy edit and make files. Ace has been tested on vite packages and should only be used on frameowkrs used by vite.
+Dash is a Rust-powered CLI tool that instantly adds popular packages to your Vite projects — no manual config, no file editing, no headaches. Just run `dash add <package>` and you're good to go.
 
-Enjoy hassle free programming!
 
+
+> ⚠️ Dash is designed for Vite-based projects only.
+
+## Usage 
+
+```bash
+dash add <PACKAGE>
+```
+
+### Packages
+
+| **Package** | **Requirements** | **Supported Frameworks**                                                      |  
+|-------------|------------------|-------------------------------------------------------------------------------|
+| Tailwindcss | Npm, rust, Node  | Vanilla, Vue, React, Preact, Lit, Svelte, Solid, Ember, Qwik, Angular, Marko  | 
+|             |                  |                                                                               | 
+|             |                  |                                                                               |
+
+# Enjoy hassle free programming!

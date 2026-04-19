@@ -2,7 +2,7 @@ use clap::{Parser, Subcommand};
 
 use crate::{
     commands::add::packages::install_package::install_package, framework::framework::Frameworks,
-    utility::error::app_errors::AceErrors,
+    utility::error::app_errors::DashErrors,
 };
 
 mod commands;
@@ -10,8 +10,8 @@ mod framework;
 mod utility;
 
 #[derive(Parser)]
-#[command(name = "Ace")]
-#[command(about = "Ace cli")]
+#[command(name = "Dash")]
+#[command(about = "Dash cli")]
 struct Cli {
     #[command(subcommand)]
     commands: Commands,
@@ -25,7 +25,7 @@ enum Commands {
     },
 }
 
-fn main() -> Result<(), AceErrors> {
+fn main() -> Result<(), DashErrors> {
     let cli = Cli::parse();
 
     match cli.commands {
