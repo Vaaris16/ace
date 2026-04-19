@@ -28,4 +28,5 @@ dash add <PACKAGE>
 |             |                  |                                                                               | 
 |             |                  |                                                                               |
 
-# Enjoy hassle free programming!
+# Programming without the fuss.
+
