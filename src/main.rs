@@ -30,7 +30,7 @@ fn main() -> Result<(), AceErrors> {
 
     match cli.commands {
         Commands::Add { package, framework } => match package.as_str() {
-            "tailwindcss" => install_package("tailwind")?,
+            "tailwindcss" => install_package("tailwind", framework)?,
             _ => eprintln!("package does not exist"),
         },
     }

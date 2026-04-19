@@ -1,0 +1,38 @@
+name = "tailwindcss"
+
+[[steps]]
+cmd = "run_cmd"
+command = "npm"
+arg = "install tailwindcss @tailwindcss/postcss postcss"
+
+[[steps]]
+cmd = "mk_file"
+path = "postcss.config.mjs"
+content = """
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+"""
+
+[[steps]]
+cmd = "mk_file"
+path = "./src/index.css"
+content = ""
+
+[[steps]]
+cmd = "edit_file"
+needle = "^"
+path = "./src/index.css"
+insert = '@import "tailwindcss";'
+
+[[steps]]
+cmd = "edit_file"
+needle = "<title>Marko App</title>"
+path = "./src/routes/+layout.marko"
+insert = """
+<script>
+  import "../index.css";
+</script>
+"""

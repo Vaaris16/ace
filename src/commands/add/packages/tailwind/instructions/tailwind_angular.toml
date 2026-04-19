@@ -1,0 +1,23 @@
+name = "tailwindcss"
+
+[[steps]]
+cmd = "run_cmd"
+command = "npm"
+arg = "install tailwindcss @tailwindcss/postcss postcss"
+
+[[steps]]
+cmd = "mk_file"
+path = "postcss.config.mjs"
+content = """
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+"""
+
+[[steps]]
+cmd = "edit_file"
+needle = "^"
+path = "./src/styles.css"
+insert = '@import "tailwindcss";'

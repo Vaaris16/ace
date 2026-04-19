@@ -1,14 +1,13 @@
 use std::path::Path;
 
 use crate::{
-    commands::add::packages::get_instructions::get_instructions,
-    utility::{
+    commands::add::packages::get_instructions::get_instructions, framework::framework::Frameworks, utility::{
         edit_file::edit_file, error::app_errors::AceErrors, mk_file::mk_file, run_cmd::run_cmd,
-    },
+    }
 };
 
-pub fn install_package(name: &str) -> Result<(), AceErrors> {
-    let package = get_instructions(name)?;
+pub fn install_package(name: &str, framework: Frameworks) -> Result<(), AceErrors> {
+    let package = get_instructions(name, framework)?;
 
     for step in package.steps {
         match step.cmd.as_str() {
