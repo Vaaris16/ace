@@ -20,8 +20,6 @@ pub fn run_cmd(command: &str, arg: &str) -> Result<(), CmdErr> {
             }
         })?;
 
-    println!("{}{}", command, arg);
-
     if !status.success() {
         return Err(CmdErr::Failed {
             cmd: format!("{}{}", command, arg),
