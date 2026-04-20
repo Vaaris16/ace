@@ -2,11 +2,11 @@ use std::path::Path;
 
 use crate::{
     commands::add::packages::get_instructions::get_instructions, framework::framework::Frameworks, utility::{
-        edit_file::edit_file, error::app_errors::DashErrors, mk_file::mk_file, run_cmd::run_cmd,
+        edit_file::edit_file, error::app_errors::FizzErrors, mk_file::mk_file, run_cmd::run_cmd,
     }
 };
 
-pub fn install_package(name: &str, framework: Frameworks) -> Result<(), DashErrors> {
+pub fn install_package(name: &str, framework: Frameworks) -> Result<(), FizzErrors> {
     let package = get_instructions(name, framework)?;
 
     for step in package.steps {

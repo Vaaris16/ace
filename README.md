@@ -1,23 +1,23 @@
-# [RUST] ACE
+# [RUST] FIZZ
 
 ## Installation
 
 ```bash
-cargo install --git https://github.com/Vaaris16/ace.git
+cargo install --git https://github.com/Vaaris16/fizz.git
 ```
 
 
-## What is Ace 
-Dash is a Rust-powered CLI tool that instantly adds popular packages to your Vite projects — no manual config, no file editing, no headaches. Just run `dash add <package>` and you're good to go.
+## What is Fizz 
+Fizz is a Rust-powered CLI tool that instantly adds popular packages to your Vite projects — no manual config, no file editing, no headaches. Just run `fizz add <package>` and you're good to go.
 
 
 
-> ⚠️ Dash is designed for Vite-based projects only.
+> ⚠️ Fizz is designed for Vite-based projects only.
 
 ## Usage 
 
 ```bash
-dash add <PACKAGE>
+fizz add <PACKAGE>
 ```
 
 ### Packages
