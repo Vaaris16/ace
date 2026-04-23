@@ -1,0 +1,18 @@
+name = "unocss"
+
+[[step]]
+cmd = "run_cmd"
+command = "npm"
+arg = "install -D unocss"
+
+[[step]]
+cmd = "edit_file"
+needle = "^"
+path = "./vite.config.ts"
+insert = "import UnoCSS from 'unocss/vite'"
+
+[[step]]
+cmd = "edit_file"
+needle = "plugins: ["
+path = "./vite.config.ts"
+insert = "UnoCSS(),"
